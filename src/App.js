@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import './App.css'
+import Input from './components/Input/input'
+import Select from './components/Select/select'
 
 function App() {
+  const [words, setWords] = useState([])
+  const [currentOption, setCurrentOption] = useState('style1')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Input currentOption={currentOption} setWords={setWords} />
+      <Select currentOption={currentOption} setCurrentOption={setCurrentOption} />
+      {words.map(({text, classname}, index) => (
+        <div className={classname} key={index}>{text}</div>
+      ))}
     </div>
   );
 }
