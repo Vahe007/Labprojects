@@ -1,13 +1,16 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
+import { WordConext } from '../../context/WordContext'
+import { v4 as uuid } from 'uuid'
 
-const Input = ({ setWords, currentOption }) => {
+const Input = () => {
+    const { setWords, currentOption } = useContext(WordConext)
     const inputRef = useRef()
     const [inputVal, setInputVal] = useState('')
 
     const onBtnClick = () => {
         const newWord = inputRef.current.value
         setWords((prevWords) => ([
-            ...prevWords, { text: newWord, classname: currentOption }
+            ...prevWords, { text: newWord, className: currentOption, key: uuid() }
         ]))
         setInputVal('')
     }

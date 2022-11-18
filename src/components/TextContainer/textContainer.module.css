@@ -1,0 +1,9 @@
+.container {
+    width: 60%;
+    height: 70%;
+    background-color: white;
+    box-shadow: -1px 0px 21px 1px rgba(0, 0, 0, 0.74) inset;
+}
+.container_selected {
+    border: 4px ridge #bfff00;
+}
