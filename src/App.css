@@ -7,6 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200&display=swap');
 
 
+.app {
+    position: relative;
+}
+
 .style1,
 .style1_demo {
     font-family: 'Rubik Microbe', cursive;
@@ -74,6 +78,8 @@
 .app-content {
     height: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -81,10 +87,10 @@
     margin: 40px;
 }
 
-.bottom {
+.right {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin-right: 10px;
 }

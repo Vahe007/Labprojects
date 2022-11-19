@@ -16,15 +16,9 @@ const Styles = () => {
 
   const onBtnClick = () => {
     const newWord = inputRef.current.value
-    let temp;
-    if (words.length === 0) {
-      temp = 'Word Art'
-    } else {
-      temp = words[words.length - 1].text
-    }
 
     setWords((prevWords) => ([
-      ...prevWords, { text: newWord && temp, className: currentOption, key: uuid() }
+      ...prevWords, { text: newWord, className: currentOption, key: uuid() }
     ]))
 
     setShown((prevState) => ({...prevState, input: false}))

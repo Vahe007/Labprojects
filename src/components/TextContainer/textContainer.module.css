@@ -1,6 +1,7 @@
 .container {
-    width: 70%;
+    width: 1000px;
     height: 70%;
+    margin-right: 10px;
     background-color: white;
     box-shadow: -1px 0px 10px 1px rgba(0, 0, 0, 0.74) inset;
     user-select: none;

@@ -29,11 +29,9 @@ function App() {
         <Header imgRef={imgRef} />
         <div className='app-content'>
           <Styles />
-          <div className='bottom' onKeyDown={onKeyDown}>
             <TextContainer imgRef={imgRef} refProp={ref}>
               {words}
             </TextContainer>
-          </div>
         </div>
       </div>
     </WordConext.Provider>

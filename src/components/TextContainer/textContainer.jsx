@@ -32,7 +32,7 @@ const TextContainer = ({ children, refProp, imgRef }) => {
     <div ref={imgRef} className={container}>
       {children.map(({ text, className, key }) => (
         <Draggable key={key} bounds='parent'>
-          <div onKeyDown={handleKeyPress} ref={refProp} id={key} onClick={handleClick} className={className}>
+          <div onKeyDown={handleKeyPress} ref={refProp} id={key}  className={className}>
             <div className={text_container}>{text}</div>
           </div>
         </Draggable>

@@ -14,15 +14,27 @@ const Header = ({ imgRef }) => {
   }
 
   const handleClick = () => {
-    DomToImage.toJpeg(imgRef.current).then((src) => {
+    // crossorigin="anonymous"
+
+    console.log(imgRef.current)
+    DomToImage.toBlob(imgRef.current).then((src) => {
       console.log('src', src)
       const img = new Image()
       img.src = src
-      FileSaver.saveAs(src, "image.jpeg")
+      FileSaver.saveAs(src, "image")
       console.log('image', img)
     }).catch((err) => {
       console.log('err', err)
     })
+
+
+    // DomToImage.toJpeg(imgRef.current, { quality: 0.95 })
+    // .then(function (dataUrl) {
+    //     const link = document.createElement('a');
+    //     link.download = 'my-image-name.jpeg';
+    //     link.href = dataUrl;
+    //     link.click();
+    // });
   }
   return (
     <div className={header_container}>
