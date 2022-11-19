@@ -3,7 +3,6 @@ import styles from './select.module.css'
 
 const Select = ({ currentOption, setCurrentOption }) => {
   const changeOption = (e) => {
-    console.log(e.target.value)
     setCurrentOption(e.target.value)
   }
   const { option, select } = styles

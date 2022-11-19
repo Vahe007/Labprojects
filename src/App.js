@@ -7,6 +7,7 @@ import { Button } from '@mui/material'
 import TextContainer from './components/TextContainer/textContainer'
 import { useWordContext, WordConext } from './context/WordContext'
 import Draggable from 'react-draggable'
+import Header from './components/Header/Header'
 
 function App() {
   const ref = useRef(null)
@@ -14,9 +15,7 @@ function App() {
   const { isShown, setShown, words, setWords, currentOption, setCurrentOption } = useWordContext()
 
   const onKeyDown = (e) => {
-    console.log("event key" + e.key)
     if (e.key === 'Delete') {
-      console.log('entered')
       const removedKey = ref.current.key
       const newWords = words.filter((word) => word.key != removedKey)
       setWords(newWords)
@@ -26,25 +25,13 @@ function App() {
   return (
     <WordConext.Provider value={{ words, setWords, currentOption, setCurrentOption, isShown, setShown }}>
       <div className="App">
+        <Header />
         <div className='app-content'>
-          <div className='top'>
-            {(isShown.style && !isShown.btn) ? <Styles />
-              : <Button onClick={() => { setShown((prevState => ({ ...prevState, style: true, btn: false }))) }} variant="contained">Choose a word style</Button>}
-            {(isShown.input && !isShown.btn) ? <Input /> : null}
-          </div>
+          <Styles />
           <div className='bottom' onKeyDown={onKeyDown}>
-            <Draggable
-              axis="x"
-              handle=".handle"
-              defaultPosition={{ x: 0, y: 0 }}
-              position={null}
-              grid={[25, 25]}
-              scale={1}
-              >
-              <TextContainer refProp={ref}>
-                {words}
-              </TextContainer>
-            </Draggable>
+            <TextContainer refProp={ref}>
+              {words}
+            </TextContainer>
           </div>
         </div>
       </div>
@@ -55,6 +42,14 @@ function App() {
 export default App;
 
 
+
+
+
+
+// {(isShown.input && !isShown.btn) ? <Input /> : null}
+
+// {(isShown.style && !isShown.btn) ? <Styles />
+//               : <Button onClick={() => { setShown((prevState => ({ ...prevState, style: true, btn: false }))) }} variant="contained">Choose a word style</Button>}
 
 {/* <Input currentOption={currentOption} setWords={setWords} />
 <Select currentOption={currentOption} setCurrentOption={setCurrentOption} /> */}

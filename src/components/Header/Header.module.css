@@ -1,0 +1,14 @@
+.header_container {
+    height: max-content;
+    background-color: #1C6EA4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+h1 {
+    font-size: 30px;
+    
+}

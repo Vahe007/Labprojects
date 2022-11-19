@@ -1,11 +1,14 @@
 import React, { useContext, useRef, useState } from 'react'
 import { WordConext } from '../../context/WordContext'
 import { v4 as uuid } from 'uuid'
+import { Button } from '@mui/material'
+import styles from './Input.module.css'
 
 const Input = () => {
     const { setWords, currentOption } = useContext(WordConext)
     const inputRef = useRef()
     const [inputVal, setInputVal] = useState('')
+    const { inp, inp_header } = styles
 
     const onBtnClick = () => {
         const newWord = inputRef.current.value
@@ -25,8 +28,8 @@ const Input = () => {
 
     return (
         <div>
-            <input onChange={onInputChange} value={inputVal} onKeyDown={onKeyDown} ref={inputRef}></input>
-            <button onClick={onBtnClick}>Enter</button>
+            <input className={inp} onChange={onInputChange} value={inputVal} onKeyDown={onKeyDown} ref={inputRef}></input>
+            <Button onClick={onBtnClick}>Enter</Button>
         </div>
     )
 }

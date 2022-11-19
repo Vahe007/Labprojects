@@ -1,42 +1,84 @@
-.style1 {
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mende+Kikakui&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Raleway+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200&display=swap');
+
+
+.style1,
+.style1_demo {
+    font-family: 'Rubik Microbe', cursive;
     color: #202c2d;
-    background: #FFFFFF;
     text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5;
 }
 
-.style2 {
-    color: #FFFFFF;
-    background: #912C22;
+.style2,
+.style1_demo {
+    font-family: 'Rubik Marker Hatch', cursive;
     text-shadow: 0 0 10px #FFFFFF;
 }
 
 .style3 {
+    font-family: 'Shadows Into Light', cursive;
     /* color: #FFFFFF;
     background: #005DFF;
     text-shadow: -5px 5px 0px #00e6e6, -10px 10px 0px #01cccc, -15px 15px 0px #00bdbd; */
 }
 
+.style4 {
+    font-family: 'Italianno', cursive;
+}
+
+.style5 {
+    font-family: 'Henny Penny', cursive;
+}
+
+.style6 {
+    font-family: 'Bungee Shade', cursive;
+}
+
+.style7 {
+    font-family: 'Raleway Dots', cursive;
+}
+
+.style8 {
+    font-family: 'Bungee Inline', cursive;
+}
+
+.style9 {
+    font-family: 'Cairo Play', cursive;
+}
+
+
 .style1,
 .style2,
-.style3 {
+.style3,
+.style4,
+.style5,
+.style6,
+.style7,
+.style8,
+.style9,
+.style10 {
     /* display: inline-block; */
     width: max-content;
     user-select: none;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: 700;
-    cursor: pointer;
+    cursor: move;
 }
+
 
 .app-content {
     height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 
 .top {
-    margin-top: 20px
+    margin: 40px;
 }
 
 .bottom {

@@ -1,9 +1,20 @@
 .container {
-    width: 60%;
+    width: 70%;
     height: 70%;
     background-color: white;
-    box-shadow: -1px 0px 21px 1px rgba(0, 0, 0, 0.74) inset;
+    box-shadow: -1px 0px 10px 1px rgba(0, 0, 0, 0.74) inset;
+    user-select: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .container_selected {
     border: 4px ridge #bfff00;
+}
+
+.text_container {
+    margin: 10px;
+    font-size: 60px;
 }
