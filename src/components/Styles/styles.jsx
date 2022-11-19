@@ -8,8 +8,7 @@ import styles from './styles.module.css'
 
 const Styles = () => {
   const options = ['style1', 'style2', 'style3', 'style4', 'style5', 'style6', 'style7', 'style9', 'style10']
-  const { setCurrentOption, isShown, setWords, currentOption, setShown } = useContext(WordConext)
-
+  const { setCurrentOption, isShown, setWords, currentOption, setShown, words } = useContext(WordConext)
 
   const inputRef = useRef()
   const [inputVal, setInputVal] = useState('')
@@ -17,8 +16,15 @@ const Styles = () => {
 
   const onBtnClick = () => {
     const newWord = inputRef.current.value
+    let temp;
+    if (words.length === 0) {
+      temp = 'Word Art'
+    } else {
+      temp = words[words.length - 1].text
+    }
+
     setWords((prevWords) => ([
-      ...prevWords, { text: newWord, className: currentOption, key: uuid() }
+      ...prevWords, { text: newWord && temp, className: currentOption, key: uuid() }
     ]))
 
     setShown((prevState) => ({...prevState, input: false}))

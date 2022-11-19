@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './textContainer.module.css'
 import { v4 as uuid } from 'uuid';
 import Draggable from 'react-draggable';
 
-const TextContainer = ({ children, refProp }) => {
+const TextContainer = ({ children, refProp, imgRef }) => {
   const [selected, setSelected] = useState({})
-  const { container, container_selected, text_container } = styles
+  const { container, container_selected, text_container, url, seturl } = styles
 
   const handleClick = (e) => {
     if (document.body.createTextRange) {
@@ -26,8 +26,10 @@ const TextContainer = ({ children, refProp }) => {
     console.log(e.key);
   }
 
+
+
   return (
-    <div className={container}>
+    <div ref={imgRef} className={container}>
       {children.map(({ text, className, key }) => (
         <Draggable key={key} bounds='parent'>
           <div onKeyDown={handleKeyPress} ref={refProp} id={key} onClick={handleClick} className={className}>

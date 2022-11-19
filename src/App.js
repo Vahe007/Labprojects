@@ -11,6 +11,7 @@ import Header from './components/Header/Header'
 
 function App() {
   const ref = useRef(null)
+  const imgRef = useRef(null)
   const [selected, setSelected] = useState({})
   const { isShown, setShown, words, setWords, currentOption, setCurrentOption } = useWordContext()
 
@@ -25,11 +26,11 @@ function App() {
   return (
     <WordConext.Provider value={{ words, setWords, currentOption, setCurrentOption, isShown, setShown }}>
       <div className="App">
-        <Header />
+        <Header imgRef={imgRef} />
         <div className='app-content'>
           <Styles />
           <div className='bottom' onKeyDown={onKeyDown}>
-            <TextContainer refProp={ref}>
+            <TextContainer imgRef={imgRef} refProp={ref}>
               {words}
             </TextContainer>
           </div>
