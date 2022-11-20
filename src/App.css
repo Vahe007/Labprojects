@@ -26,9 +26,6 @@
 
 .style3 {
     font-family: 'Shadows Into Light', cursive;
-    /* color: #FFFFFF;
-    background: #005DFF;
-    text-shadow: -5px 5px 0px #00e6e6, -10px 10px 0px #01cccc, -15px 15px 0px #00bdbd; */
 }
 
 .style4 {
@@ -93,4 +90,28 @@
     display: flex;
     align-items: center;
     margin-right: 10px;
+}
+
+
+
+/*  //////////////////////// */
+.page2_container {
+    height: 100%;
+    width: 100%;
+}
+
+.page2_content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+}
+
+.page2_display {
+    min-width: 50px;
+    font-size: 25px;
+    height: 60px;
+    padding: 10px;
+    border: 5px inset #1C6EA4
 }

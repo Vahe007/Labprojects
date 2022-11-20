@@ -4,11 +4,15 @@ import styles from './Header.module.css'
 import FileSaver from 'file-saver'
 import { WordConext } from '../../context/WordContext'
 import DomToImage from 'dom-to-image'
+import { Navigate, useHistory, useNavigate } from 'react-router-dom'
 
 const Header = ({ imgRef }) => {
-  const { header_container, header_left, header_right } = styles
   const { words } = useContext(WordConext)
   const titleRef = useRef(null)
+  const navigate = useNavigate()
+
+  const { header_container, header_left, header_right } = styles
+
   const sx = {
     color: 'black', background: '#FDC125', margin: '5px'
   }
@@ -42,8 +46,8 @@ const Header = ({ imgRef }) => {
         <h1 ref={titleRef}>Word Art</h1>
       </div>
       <div className={header_right}>
-        <Button sx={sx} type='contained'>Option 1</Button>
-        <Button sx={sx} type='contained'>Option 2</Button>
+        <Button onClick={() => {navigate('/option1')}} sx={sx} type='contained'>Option 1</Button>
+        <Button onClick={() => {navigate('/option2')}} sx={sx} type='contained'>Option 2</Button>
         <Button onClick={handleClick} sx={sx} type='contained'>Download</Button>
       </div>
 

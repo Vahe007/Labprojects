@@ -10,34 +10,14 @@ import Draggable from 'react-draggable'
 import Header from './components/Header/Header'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Option1 from './pages/Option1'
+import Wrapper from './Wrapper'
 
 function App() {
-  // const ref = useRef(null)
-  // const imgRef = useRef(null)
   const { isShown, setShown, words, setWords, currentOption, setCurrentOption } = useWordContext()
-
-  const onKeyDown = (e) => {
-    if (e.key === 'Delete') {
-      const removedKey = ref.current.key
-      const newWords = words.filter((word) => word.key != removedKey)
-      setWords(newWords)
-    }
-  }
 
   return (
     <WordConext.Provider value={{ words, setWords, currentOption, setCurrentOption, isShown, setShown }}>
-      {/* <Router>
-        <div className="App">
-          <Header imgRef={imgRef} />
-          <div className='app-content'>
-            <Styles />
-            <TextContainer imgRef={imgRef} refProp={ref}>
-              {words}
-            </TextContainer>
-          </div>
-        </div>
-      </Router> */}
-      <Option1 />
+      <Wrapper />
     </WordConext.Provider>
   )
 }
