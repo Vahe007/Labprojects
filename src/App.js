@@ -8,11 +8,12 @@ import TextContainer from './components/TextContainer/textContainer'
 import { useWordContext, WordConext } from './context/WordContext'
 import Draggable from 'react-draggable'
 import Header from './components/Header/Header'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Option1 from './pages/Option1'
 
 function App() {
-  const ref = useRef(null)
-  const imgRef = useRef(null)
-  const [selected, setSelected] = useState({})
+  // const ref = useRef(null)
+  // const imgRef = useRef(null)
   const { isShown, setShown, words, setWords, currentOption, setCurrentOption } = useWordContext()
 
   const onKeyDown = (e) => {
@@ -25,15 +26,18 @@ function App() {
 
   return (
     <WordConext.Provider value={{ words, setWords, currentOption, setCurrentOption, isShown, setShown }}>
-      <div className="App">
-        <Header imgRef={imgRef} />
-        <div className='app-content'>
-          <Styles />
+      {/* <Router>
+        <div className="App">
+          <Header imgRef={imgRef} />
+          <div className='app-content'>
+            <Styles />
             <TextContainer imgRef={imgRef} refProp={ref}>
               {words}
             </TextContainer>
+          </div>
         </div>
-      </div>
+      </Router> */}
+      <Option1 />
     </WordConext.Provider>
   )
 }
