@@ -3,13 +3,14 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 
 
-const CustomDialog = ({text, setOpen, open}) => {
-    const handleClose = () => {}
+const CustomDialog = ({ text, setOpen, open, content, handleConfirm }) => {
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     return (
         <div>
@@ -21,12 +22,11 @@ const CustomDialog = ({text, setOpen, open}) => {
             >
                 <DialogTitle>{text}</DialogTitle>
                 <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description">
-
-                    </DialogContentText>
+                    {content}
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Close</Button>
+                    <Button onClick={handleConfirm}>Confirm</Button>
                 </DialogActions>
             </Dialog>
         </div>

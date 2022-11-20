@@ -25,7 +25,6 @@ function CustomSelect({label, sx, options, option, setOption}) {
           onChange={handleChange}
         >
           {options.map(({name, className}) => {
-            console.log('classname', className);
             return <MenuItem key={uuid()} value={name}>
               <div className={className}>{name}</div>
             </MenuItem>

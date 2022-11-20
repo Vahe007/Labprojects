@@ -7,15 +7,19 @@ import Header from '../components/Header/Header'
 import { fonts } from '../constants'
 
 const Option2 = () => {
+  const imgRef = useRef(null)
   const [val, setVal] = useState('')
-  const sizeRef = useRef(null)
+
   const [sizeVal, setSizeVal] = useState(25)
   const [height, setHeight] = useState(100)
   const [spacing, setSpacing] = useState(0)
   const [font, setFont] = useState('')
-  const [open, setOpen] = useState(false)
-  
+  const [color, setColor] = useState('')
 
+
+  const handleColorChange = ({ target: { value } }) => {
+    setColor(value)
+  }
 
   const handleInputChange = ({ target: { value } }) => {
     setVal(value)
@@ -31,7 +35,6 @@ const Option2 = () => {
     max: 70,
     defaultValue: 25,
     label: 'Font Size',
-    refProp: sizeRef,
     onChange: (e) => {
       setSizeVal(e.target.value)
     }
@@ -62,22 +65,26 @@ const Option2 = () => {
     fontSize: `${sizeVal}px`,
     height: height,
     letterSpacing: `${spacing}px`,
-    fontFamily: font
+    fontFamily: font,
+    color
   }
 
 
   return (
     <div className='page2_container'>
-      {open && <CustomDialog text='Select Font' setOpen={setOpen} open={open} />}
-      <Header />
+      <Header imgRef={imgRef} />
       <div className='page2_content'>
-        <div className='page2_display' style={style}>{val}</div>
+        <div ref={imgRef} className='page2_display' style={style}>{val}</div>
         <hr style={{ width: '100%', margin: '10px' }}></hr>
         <TextField sx={sx} value={val} onChange={handleInputChange} variant='outlined' label='Text' />
         <CustomSelect option={font} setOption={setFont} sx={sx} options={fonts} label='Font' />
         <CustomSlider {...fontSliderProps} />
         <CustomSlider {...lineHeightProps} />
         <CustomSlider {...letterSpacing} />
+        <div className='page2_color'>
+          <label>Color</label>
+          <input onChange={handleColorChange} style={{ width: '70px', height: '50px', cursor: 'pointer' }} type='color' />
+        </div>
       </div>
     </div>
   )
