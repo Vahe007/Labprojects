@@ -13,23 +13,22 @@ const CustomDialog = ({ text, setOpen, open, content, handleConfirm }) => {
     }
 
     return (
-        <div>
-            <Dialog
-                open={open}
-                keepMounted
-                onClose={handleClose}
-                aria-describedby="alert-dialog-slide-description"
-            >
-                <DialogTitle>{text}</DialogTitle>
-                <DialogContent>
-                    {content}
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Close</Button>
-                    <Button onClick={handleConfirm}>Confirm</Button>
-                </DialogActions>
-            </Dialog>
-        </div>
+        <Dialog
+            sx={{position: 'absolute'}}
+            open={open}
+            keepMounted
+            onClose={handleClose}
+            aria-describedby="alert-dialog-slide-description"
+        >
+            <DialogTitle>{text}</DialogTitle>
+            <DialogContent>
+                {content}
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={handleClose}>Close</Button>
+                <Button onClick={handleConfirm}>Confirm</Button>
+            </DialogActions>
+        </Dialog>
     )
 }
 

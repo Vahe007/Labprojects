@@ -30,6 +30,7 @@ const Header = ({ imgRef }) => {
 
   const handleClick = () => {
     // crossorigin="anonymous"
+
     setOpen(true)
 
     imgRef.current.style.removeProperty('border')
@@ -41,9 +42,6 @@ const Header = ({ imgRef }) => {
     }).catch((err) => {
       console.log('err', err)
     })
-
-    // FileSaver.saveAs(src, "image.png")
-
 
 
     // DomToImage.toJpeg(imgRef.current, { quality: 0.95 })
@@ -57,6 +55,7 @@ const Header = ({ imgRef }) => {
 
   return (
     <div className={header_container}>
+        {open && <CustomDialog {...dialogProps} />}
       <div className={header_left}>
         <h1 ref={titleRef}>Word Art</h1>
       </div>
@@ -64,7 +63,6 @@ const Header = ({ imgRef }) => {
         <Button onClick={() => { navigate('/option1') }} sx={sx} type='contained'>Option 1</Button>
         <Button onClick={() => { navigate('/option2') }} sx={sx} type='contained'>Option 2</Button>
         <Button onClick={handleClick} sx={sx} type='contained'>Download</Button>
-        {open && <CustomDialog {...dialogProps} />}
       </div>
 
     </div>
