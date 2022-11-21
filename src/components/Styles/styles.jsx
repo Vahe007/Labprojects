@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import React, { useContext, useRef, useState } from 'react'
 import Draggable from 'react-draggable'
 import { v4 as uuid } from 'uuid'
@@ -37,7 +37,7 @@ const Styles = () => {
   return (
     <Draggable>
       {isShown.input ? <div className={inp}>
-        <input placeholder='Enter the Text' onChange={onInputChange} value={inputVal} onKeyDown={onKeyDown} ref={inputRef}></input>
+        <TextField fullWidth label='Enter the Text' variant="outlined" onChange={onInputChange} value={inputVal} onKeyDown={onKeyDown} inputRef={inputRef}></TextField>
         <Button sx={{margin: '10px', height: '100%'}} variant='contained' onClick={onBtnClick}>Enter</Button>
       </div> :
         <div className={gallery}>

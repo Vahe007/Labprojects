@@ -1,25 +1,92 @@
-import React, { useContext, useRef } from 'react'
+import { TextField } from '@mui/material'
+import React, { useEffect, useRef, useState } from 'react'
+import CustomDialog from '../components/CustomDialog'
+import CustomSelect from '../components/CustomSelect'
+import CustomSlider from '../components/CustomSlider'
 import Header from '../components/Header/Header'
-import Styles from '../components/Styles/styles'
-import TextContainer from '../components/TextContainer/textContainer'
-import { WordConext } from '../context/WordContext'
+import { fonts } from '../constants'
 
 const Option1 = () => {
-    const ref = useRef(null)
-    const imgRef = useRef(null)
-    const { words } = useContext(WordConext)
+  const imgRef = useRef(null)
+  const [val, setVal] = useState('')
 
-    return (
-        <div className="App">
-            <Header imgRef={imgRef} />
-            <div className='app-content'>
-                <Styles />
-                <TextContainer imgRef={imgRef} refProp={ref}>
-                    {words}
-                </TextContainer>
-            </div>
+  const [sizeVal, setSizeVal] = useState(25)
+  const [height, setHeight] = useState(100)
+  const [spacing, setSpacing] = useState(0)
+  const [color, setColor] = useState('')
+  const [className, setClassname] = useState('')
+
+
+  const handleColorChange = ({ target: { value } }) => {
+    setColor(value)
+  }
+
+  const handleInputChange = ({ target: { value } }) => {
+    setVal(value)
+  }
+
+  const sx = {
+    width: '60%',
+    margin: '10px'
+  }
+
+  const fontSliderProps = {
+    min: 10,
+    max: 70,
+    defaultValue: 25,
+    label: 'Font Size',
+    onChange: (e) => {
+      setSizeVal(e.target.value)
+    }
+  }
+
+  const lineHeightProps = {
+    min: 30,
+    max: 300,
+    defaultValue: 60,
+    label: 'Line Height',
+    onChange: (e) => {
+      setHeight(e.target.value)
+    }
+  }
+
+  const letterSpacing = {
+    min: -3,
+    max: 20,
+    defaultValue: 0,
+    label: 'Letter Spacing',
+    onChange: (e) => {
+      setSpacing(e.target.value)
+    }
+  }
+
+
+  const style = {
+    fontSize: `${sizeVal}px`,
+    height: height,
+    letterSpacing: `${spacing}px`,
+    color
+  }
+
+
+  return (
+    <div className='page1_container'>
+      <Header imgRef={imgRef} />
+      <div className='page1_content'>
+        <div ref={imgRef} className={`page1_display ${className}`} style={style}>{val}</div>
+        <hr style={{ width: '100%', margin: '10px' }}></hr>
+        <TextField sx={sx} value={val} onChange={handleInputChange} variant='outlined' label='Text' />
+        <CustomSelect option={className} setOption={setClassname} sx={sx} options={fonts} label='Font' />
+        <CustomSlider {...fontSliderProps} />
+        <CustomSlider {...lineHeightProps} />
+        <CustomSlider {...letterSpacing} />
+        <div className='page1_color'>
+          <label>Color</label>
+          <input onChange={handleColorChange} style={{ width: '70px', height: '50px', cursor: 'pointer' }} type='color' />
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Option1

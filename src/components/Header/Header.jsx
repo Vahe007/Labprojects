@@ -44,18 +44,19 @@ const Header = ({ imgRef }) => {
     })
 
 
-    // DomToImage.toJpeg(imgRef.current, { quality: 0.95 })
-    // .then(function (dataUrl) {
-    //     const link = document.createElement('a');
-    //     link.download = 'my-image-name.jpeg';
-    //     link.href = dataUrl;
-    //     link.click();
-    // });
+    // DomToImage.toPng(imgRef.current, { quality: 0.95 })
+    //   .then(function (dataUrl) {
+    //     const link = document.createElement('a')
+    //     link.download = 'my-image-name.jpeg'
+    //     link.href = dataUrl
+    //     console.log('src', dataUrl)
+    //     link.click()
+    //   });
   }
 
   return (
     <div className={header_container}>
-        {open && <CustomDialog {...dialogProps} />}
+      {open && <CustomDialog {...dialogProps} />}
       <div className={header_left}>
         <h1 ref={titleRef}>Word Art</h1>
       </div>

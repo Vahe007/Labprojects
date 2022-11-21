@@ -1,15 +1,6 @@
-import { useRef, useState } from 'react'
+import React from 'react'
 import './App.css'
-import Input from './components/Input/input'
-import Select from './components/Select/select'
-import Styles from './components/Styles/styles'
-import { Button } from '@mui/material'
-import TextContainer from './components/TextContainer/textContainer'
 import { useWordContext, WordConext } from './context/WordContext'
-import Draggable from 'react-draggable'
-import Header from './components/Header/Header'
-import { BrowserRouter as Router } from 'react-router-dom'
-import Option1 from './pages/Option1'
 import Wrapper from './Wrapper'
 
 function App() {
@@ -23,16 +14,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-// {(isShown.input && !isShown.btn) ? <Input /> : null}
-
-// {(isShown.style && !isShown.btn) ? <Styles />
-//               : <Button onClick={() => { setShown((prevState => ({ ...prevState, style: true, btn: false }))) }} variant="contained">Choose a word style</Button>}
-
-{/* <Input currentOption={currentOption} setWords={setWords} />
-<Select currentOption={currentOption} setCurrentOption={setCurrentOption} /> */}

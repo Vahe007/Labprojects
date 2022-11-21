@@ -25,7 +25,7 @@ function CustomSelect({label, sx, options, option, setOption}) {
           onChange={handleChange}
         >
           {options.map(({name, className}) => {
-            return <MenuItem key={uuid()} value={name}>
+            return <MenuItem key={uuid()} value={className}>
               <div className={className}>{name}</div>
             </MenuItem>
           })}

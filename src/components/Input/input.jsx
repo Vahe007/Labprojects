@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react'
 import { WordConext } from '../../context/WordContext'
 import { v4 as uuid } from 'uuid'
-import { Button } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import styles from './Input.module.css'
 
 const Input = () => {
@@ -28,7 +28,7 @@ const Input = () => {
 
     return (
         <div>
-            <input className={inp} onChange={onInputChange} value={inputVal} onKeyDown={onKeyDown} ref={inputRef}></input>
+            <TextField className={inp} onChange={onInputChange} value={inputVal} onKeyDown={onKeyDown} inputRef={inputRef}></TextField>
             <Button onClick={onBtnClick}>Enter</Button>
         </div>
     )
