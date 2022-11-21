@@ -9,7 +9,6 @@ import { v4 as uuid } from 'uuid'
 function CustomSelect({label, sx, options, option, setOption}) {
 
   const handleChange = (event) => {
-    console.log(event.target.value)
     setOption(event.target.value)
   }
 
